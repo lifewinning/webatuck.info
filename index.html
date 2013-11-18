@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>webutuck.info: a map of maps, by Webutuck High School students</title>
+		<!-- mapbox and leaflet libraries -->
+		<script src='//api.tiles.mapbox.com/mapbox.js/v1.4.2/mapbox.js'></script>
+		<link href='//api.tiles.mapbox.com/mapbox.js/v1.4.2/mapbox.css' rel='stylesheet' />
+		<script src="leaflet-hash.js"></script>
+		<script type="text/javascript" src="leaflet.ajax.min.js"></script>
+		<!-- everything else -->
+		<link rel="stylesheet" type="text/css" href="style.css" />		
+		<style type="text/css">
+		body { margin:0; padding:0; }
+   		#map { position:absolute; top:0; bottom:0; width:100%; }</style>
+</head>
+<body>
+
+<div id='map'></div>
+
+
+<div id='info'>
+
+	<h1>webutuck.info</h1>
+	<p>In September 2013, students in Webutuck High School art classes participated in a mapping workshop where they made maps of their lives--things they did, things they liked, things they didn't like, and things they'd like to see. They drew the maps on <a href="http://fieldpapers.org/">Field Papers</a>, which were scanned, edited, and turned into geotiffs and markers. This is what they look like all together.</p>
+	<p>Thanks to <a href="wassaicproject.org">The Wassaic Project</a>, Mr. Fitz at Webutuck High School, and <a href="http://stamen.com/">Stamen</a> for making Field Papers, seriously.</p>
+	
+	<h2>Click to add and remove layers</h2>
+	<div id='map-ui'></div>
+</div>
+
+		<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
