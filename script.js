@@ -7,11 +7,6 @@ var ui = document.getElementById('map-ui');
 
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
-markers
-var markerstyle = {
-    "marker-color": "#E18E54"
-};
-
 function popUp(f,l){
     var out = [];
     if (f.properties){
@@ -23,7 +18,7 @@ function popUp(f,l){
 }
 
 
- markers = new L.geoJson.ajax("markers.geojson",  {onEachFeature: popUp, style: markerstyle});
+ markers = new L.geoJson.ajax("http://lifewinning.github.io/webatuck.info/markers.geojson",  {onEachFeature: popUp});
 
 //here are the sattellite layers
 addLayer(L.mapbox.tileLayer('lifewinning.webatuck-test'), 'a bog monster');
