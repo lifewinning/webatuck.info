@@ -7,18 +7,20 @@ var ui = document.getElementById('map-ui');
 
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
-function popUp(f,l){
-    var out = [];
-    if (f.properties){
-        for(key in f.properties){
-            out.push(f.properties[key]);
-        }
-        l.bindPopup(out.join("<br />"));
-    }
-}
+// function popUp(f,l){
+//     var out = [];
+//     if (f.properties){
+//         for(key in f.properties){
+//             out.push(f.properties[key]);
+//         }
+//         l.bindPopup(out.join());
+//     }
+// }
 
 
- markers = new L.geoJson.ajax("http://lifewinning.github.io/webatuck.info/markers.geojson",  {onEachFeature: popUp});
+ var markerLayer = L.mapbox.markerLayer()
+    .loadURL('http://lifewinning.github.io/webatuck.info/markers.geojson')
+    .addTo(map);
 
 //here are the sattellite layers
 addLayer(L.mapbox.tileLayer('lifewinning.webatuck-test'), 'a bog monster');
