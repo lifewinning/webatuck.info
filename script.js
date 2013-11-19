@@ -15,12 +15,11 @@ markerLayer.on('layeradd', function(e) {
         feature = marker.feature;
 
     // Create custom popup content
-    var popupContent =  '<strong>' + feature.properties.text + '</strong>';
+    var popupContent =  '<strong>' + feature.properties.Text + '</strong>';
 
     // http://leafletjs.com/reference.html#popup
     marker.bindPopup(popupContent,{
-        closeButton: true,
-        minWidth: 320
+        closeButton: true
     });
 });
 
