@@ -26,7 +26,7 @@ markerLayer.on('layeradd', function(e) {
 markerLayer.loadURL('http://lifewinning.github.io/webatuck.info/markers.geojson')
     .addTo(map);
 
-//here are the sattellite layers
+//here are the layers!
 addLayer(L.mapbox.tileLayer('lifewinning.webatuck-test'), 'a bog monster');
 addLayer(L.mapbox.tileLayer('lifewinning.webatuck-13'), 'some weird green faces');
 addLayer(L.mapbox.tileLayer('lifewinning.webatuck-03'), 'more trees');
