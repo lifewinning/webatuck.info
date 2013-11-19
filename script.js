@@ -76,7 +76,7 @@ function addLayer(layer, name) {
    
 }
 
-document.getElementById('navigation').onclick = function(e) {
+document.getElementById('highlights').onclick = function(e) {
     var pos = e.target.getAttribute('data-position');
     if (pos) {
         var loc = pos.split(',');
