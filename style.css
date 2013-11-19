@@ -7,10 +7,6 @@ body{margin: 0; padding: 0;}
 
 }
 
-#map-ui{
-	width: 100%;
-}
-
 #map-ui li a {
 	
     font: 10px Helvetica, sans-serif;
@@ -32,8 +28,7 @@ body{margin: 0; padding: 0;}
 	display: inline;
 	margin-top: 10px;
     margin-bottom: 10px;
-   
-    line-height: 30px;
+    line-height: 25px;
 
 
 }
@@ -78,10 +73,33 @@ body{margin: 0; padding: 0;}
 	text-decoration: none;
 }
 
+#highlights li a{
+	font: 10px Helvetica, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 5px;
+    background: #E18E54;
+}
+
+#highlights li{
+	list-style: none;
+	white-space: pre-wrap;
+	border: 1px solid #fff;
+	display: inline;
+	margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 25px;
+
+
+}
+
+
+
 @media screen and (min-width: 320px) and (max-width: 768px){
 	#info{
 		width: auto;
 		max-height: 33.3%;
-		overflow: scroll;
 	}
 }

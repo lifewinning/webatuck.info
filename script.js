@@ -7,19 +7,24 @@ var ui = document.getElementById('map-ui');
 
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
-// function popUp(f,l){
-//     var out = [];
-//     if (f.properties){
-//         for(key in f.properties){
-//             out.push(f.properties[key]);
-//         }
-//         l.bindPopup(out.join());
-//     }
-// }
 
+ var markerLayer = L.mapbox.markerLayer();
 
- var markerLayer = L.mapbox.markerLayer()
-    .loadURL('http://lifewinning.github.io/webatuck.info/markers.geojson')
+markerLayer.on('layeradd', function(e) {
+    var marker = e.layer,
+        feature = marker.feature;
+
+    // Create custom popup content
+    var popupContent =  '<strong>' + feature.properties.text + '</strong>';
+
+    // http://leafletjs.com/reference.html#popup
+    marker.bindPopup(popupContent,{
+        closeButton: true,
+        minWidth: 320
+    });
+});
+
+markerLayer.loadURL('http://lifewinning.github.io/webatuck.info/markers.geojson')
     .addTo(map);
 
 //here are the sattellite layers
@@ -35,7 +40,7 @@ addLayer(L.mapbox.tileLayer('lifewinning.webatuck-09'), 'firsts');
 addLayer(L.mapbox.tileLayer('lifewinning.webatuck-10'), 'places the police are');
 addLayer(L.mapbox.tileLayer('lifewinning.webatuck-11'), 'rope swings and cemeteries');
 addLayer(L.mapbox.tileLayer('lifewinning.webatuck-12'), 'imaginary slip and slide (apparently for rednecks)');
-addLayer(markers, 'narrative');
+addLayer(markerLayer, 'a fragmented narrative');
 
 
 //this is the thing that controls all the layers, it's important
@@ -69,6 +74,14 @@ function addLayer(layer, name) {
     ui.appendChild(item);
     var layer_ids= document.getElementsByTagName('a');
    
+}
+
+document.getElementById('navigation').onclick = function(e) {
+    var pos = e.target.getAttribute('data-position');
+    if (pos) {
+        var loc = pos.split(',');
+        map.setView(loc, 15);
+    }
 }
 
 var hash = new L.Hash(map);
